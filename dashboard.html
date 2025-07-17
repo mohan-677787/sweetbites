@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Navbar styling with user info */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffe4e1;
+      padding: 12px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      color: #d63384;
+      font-weight: bold;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .user-info span {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .user-info img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #fff;
+      border: 2px solid #d63384;
+    }
+
+    .user-info a {
+      margin-left: 15px;
+      font-size: 0.9rem;
+      color: #d63384;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .user-info a:hover {
+      text-decoration: underline;
+    }
+
+.dashboard {
+  text-align: center;
+  padding: 40px;
+  background-color: #fffaf2;
+  min-height: 100vh;
+}
+
+.dashboard h1 {
+  color: #ff9966;
+  font-family: 'Pacifico', cursive;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 2px solid #ffd1a6;
+  padding: 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #d2691e;
+  box-shadow: 0 6px 12px rgba(255, 175, 130, 0.15);
+  transition: transform 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  background-color: #fff2e6;
+}
+
+.dashboard-card.logout {
+  color: #ff4d4d;
+  border-color: #ffb0a6;
+}
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">Sweet Bites</div>
+    <div class="user-info">
+      <span id="userName">User</span>
+
+      <a href="#" onclick="logout()">Logout</a>
+
+
+    </div>
+  </div>
+
+
+
+  <main class="dashboard">
+  <h1>Welcome Back, <span id="welcomeName"></span> 👋</h1>
+  <p style="margin-bottom: 30px;">What would you like to do today?</p>
+
+  <div class="dashboard-grid">
+    <a href="user-menu.html" class="dashboard-card">🍽 Browse Menu</a>
+    <a href="user-cart.html" class="dashboard-card">🛒 View Cart</a>
+    <a href="user-order.html" class="dashboard-card">📦 Order Summary</a>
+    <a href="user-about.html" class="dashboard-card">🧁 About Us</a>
+    <a href="user-contact.html" class="dashboard-card">📞 Contact Us</a>
+    
+  </div>
+</main>
+
+
+
+  <script>
+    const loggedUser = localStorage.getItem("loggedUser");
+    if (!loggedUser) {
+      location.href = "login.html";
+    }
+
+    // Display username
+    document.getElementById("userName").textContent = loggedUser;
+    document.getElementById("welcomeName").textContent = loggedUser;
+
+    function logout() {
+      localStorage.removeItem("loggedUser");
+      location.href = "login.html";
+    }
+
+  const user = localStorage.getItem("loggedUser");
+  if (!user) location.href = "login.html";
+
+  document.getElementById("welcomeName").textContent = user;
+
+  function logout() {
+    localStorage.removeItem("loggedUser");
+    location.href = "login.html";
+  }
+
+
+  // Check if user is logged in (can be based on session/localStorage/flag from server)
+  const isLoggedIn = true; // Replace this logic based on actual session check
+
+  if (isLoggedIn) {
+    document.getElementById("menu-link").href = "dashboard-menu.html";
+  }
+
+    
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

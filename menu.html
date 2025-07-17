@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+   <style>
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block !important;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 248, 242, 0.97);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+   <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 10px 20px;">
+      <!-- Logo -->
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+        <div class="logo" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <img src="ChatGPT Image Jul 2, 2025, 03_51_28 PM.png" alt="Sweet Bites Logo" style="height: 40px;" />
+          <span style="font-size: 1.5rem; font-weight: 600;">Sweet Bites</span>
+        </div>
+      </a>
+
+      <!-- Hamburger Button -->
+      <button id="hamburgerBtn" class="hamburger" style="font-size: 26px; background: none; border: none; cursor: pointer; display: none;">
+        ☰
+      </button>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="cart.html">CART <span id="cart-count" class="cart-badge">0</span></a></li>
+        <li><a href="order.html">ORDER</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  
+
+  <main class="menu-page">
+    <h1 class="menu-heading">Categories</h1>
+
+    <div class="filters">
+      <button onclick="showCategory('breads')">Breads</button>
+      <button onclick="showCategory('pastries')">Pastries</button>
+      <button onclick="showCategory('cakes')">Cakes</button>
+      <button onclick="showCategory('cookies')">Cookies</button>
+      <button onclick="showCategory('donuts')">Donuts</button>
+      <button onclick="showCategory('cupcakes')">Cup Cakes</button>
+      <button onclick="showCategory('snacks')">Snacks</button>
+      <button onclick="showCategory('sweets')">Sweets & Desserts</button>
+      <button onclick="showCategory('beverages')">Beverages</button>
+    </div>
+
+
+    <!-- Breads Section -->
+    <div class="menu-items">
+      <div id="breads" class="category">
+        <h2>Breads</h2>
+        <div class="grid">
+
+         <div class="card">
+  <img src="white bread.jpeg" alt="White Bread">
+  <h3>White Bread</h3>
+  <p>Price: ₹40</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="white whole bread.jpeg" alt="Whole Wheat Bread">
+  <h3>Whole Wheat Bread</h3>
+  <p>Price: ₹45</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="multigrain bread.jpeg" alt="Multigrain Bread">
+  <h3>Multigrain Bread</h3>
+  <p>Price: ₹50</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="garlic bread.jpeg" alt="Garlic Bread">
+  <h3>Garlic Bread</h3>
+  <p>Price: ₹60</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="rye bread.jpeg" alt="Rye Bread">
+  <h3>Rye Bread</h3>
+  <p>Price: ₹55</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="sourdough bread.jpeg" alt="Sourdough Bread">
+  <h3>Sourdough Bread</h3>
+  <p>Price: ₹65</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="french bread.jpeg" alt="French Bread">
+  <h3>French Bread</h3>
+  <p>Price: ₹55</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="french toast.jpeg" alt="French Toast">
+  <h3>French Toast</h3>
+  <p>Price: ₹50</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="bagutte.jpeg" alt="Baguette">
+  <h3>Baguette</h3>
+  <p>Price: ₹60</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="ciabatta.jpeg" alt="Ciabatta">
+  <h3>Ciabatta</h3>
+  <p>Price: ₹58</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="pita bread.jpeg" alt="Pita Bread">
+  <h3>Pita Bread</h3>
+  <p>Price: ₹52</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="naan bread.jpeg" alt="Naan">
+  <h3>Naan</h3>
+  <p>Price: ₹48</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="brioche.jpeg" alt="Brioche">
+  <h3>Brioche</h3>
+  <p>Price: ₹63</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="corn bread.jpeg" alt="Cornbread">
+  <h3>Cornbread</h3>
+  <p>Price: ₹46</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+        </div>
+      </div>
+    </div>  
+  
+    <!-- Pastries Section -->
+
+<div id="pastries" class="category" style="display:none;">
+  <h2>Pastries</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="choclate fludge pastry.jpeg" alt="Pastry 1">
+      <h3>Chocolate Croissant</h3>
+      <p>Price: ₹50</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    <div class="card">
+      <img src="caramel pastry.jpeg" alt="Pastry 2">
+      <h3>Caramel Pastry</h3>
+      <p>Price: ₹60</p> 
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="strawberry pastry.jpeg" alt="Pastry 3">
+      <h3>Strawberry Pastry</h3>
+      <p>Price: ₹70</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="vaila.jpeg" alt="Pastry 4">
+      <h3>Vanilla Pastry</h3>
+      <p>Price: ₹55</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="pineapple pastry.jpeg" alt="Pastry 5">
+      <h3>Pineapple Pastry</h3>
+      <p>Price: ₹65</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">      
+      <img src="buttersctoch pastry.jpeg" alt="Pastry 6">
+      <h3>Butterscotch Pastry</h3>
+      <p>Price: ₹75</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="red velvet pastry.jpeg" alt="Pastry 7">
+      <h3>Red Velvet Pastry</h3>
+      <p>Price: ₹80</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">  
+      <img src="choclate lava pastry.jpeg" alt="Pastry 8">
+      <h3>Chocolate Pastry</h3>
+      <p>Price: ₹90</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="mango pastry.jpeg" alt="Pastry 9">
+      <h3>Mango Pastry</h3>
+      <p>Price: ₹85</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="blueberry pastry.jpeg" alt="Pastry 10">
+      <h3>Blueberry Pastry</h3>
+      <p>Price: ₹95</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="hazelnut pastry.jpeg" alt="Pastry 11">
+      <h3>Hazelnut Pastry</h3>
+      <p>Price: ₹100</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="Eggless choco delight.jpeg" alt="Pastry 12">
+      <h3>Eggless choco delight</h3>
+      <p>Price: ₹110</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="black forest pastry.jpeg" alt="Pastry 13">
+      <h3>Coconut Pastry</h3>
+      <p>Price: ₹120</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="choclate truffle pastry.jpeg" alt="Pastry 14">
+      <h3>Chocolate Fudge Pastry</h3>
+      <p>Price: ₹130</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    </div>
+</div>
+
+  </div>
+</div>
+
+
+<!-- Cakes Section -->
+<div id="cakes" class="category" style="display:none;">
+  <h2>Cakes</h2>
+  <div class="grid">
+<div class="card">
+  <img src="cc.jpeg" alt="Chocolate Cake">
+  <h3>Chocolate Cake</h3>
+  <p>Price: ₹120</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="blackforest cake.jpeg" alt="Black Forest Cake">
+  <h3>Black Forest Cake</h3>
+  <p>Price: ₹130</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="vanila cake.jpeg" alt="Vanilla Cake">
+  <h3>Vanilla Cake</h3>
+  <p>Price: ₹115</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="red velvet cake.jpeg" alt="Red Velvet Cake">
+  <h3>Red Velvet Cake</h3>
+  <p>Price: ₹140</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="buttersctoch cake.jpeg" alt="Butterscotch Cake">
+  <h3>Butterscotch Cake</h3>
+  <p>Price: ₹125</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="pineapple cake.jpeg" alt="Pineapple Cake">
+  <h3>Pineapple Cake</h3>
+  <p>Price: ₹110</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</div>
+<!-- Cookies Section -->
+<div id="cookies" class="category" style="display:none;">
+  <h2>Cookies</h2>
+  <div class="grid">
+<div class="card">
+  <img src="choclate chip cookies.jpeg" alt="Chocolate Chip Cookie">
+  <h3>Chocolate Chip Cookie</h3>
+  <p>Price: ₹30</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="oatmeal raisin cookie.jpeg" alt="Oatmeal Raisin Cookie">
+  <h3>Oatmeal Raisin Cookie</h3>
+  <p>Price: ₹28</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="butter cookie.jpeg" alt="Butter Cookie">
+  <h3>Butter Cookie</h3>
+  <p>Price: ₹25</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="shortbread cookie.jpeg" alt="Shortbread Cookie">
+  <h3>Shortbread Cookie</h3>
+  <p>Price: ₹26</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="peanut butter cookies.jpeg" alt="Peanut Butter Cookie">
+  <h3>Peanut Butter Cookie</h3>
+  <p>Price: ₹32</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="double chocolate chip cookies.jpeg" alt="Double Chocolate Cookie">
+  <h3>Double Chocolate Cookie</h3>
+  <p>Price: ₹35</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+</div>
+</div>
+<!-- Donuts Section -->
+<div id="donuts" class="category" style="display:none;">
+  <h2>Donuts</h2>
+  <div class="grid">
+<div class="card">
+  <img src="glazed donut.jpeg" alt="Glazed Donut">
+  <h3>Glazed Donut</h3>
+  <p>Price: ₹20</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="card">
+  <img src="chocolate donut.jpeg" alt="Chocolate Donut">
+  <h3>Chocolate Donut</h3>
+  <p>Price: ₹40</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="strawberry donut.jpeg" alt="Strawberry Donut">
+  <h3>Strawberry Donut</h3>
+  <p>Price: ₹38</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="boston cream donut.jpeg" alt="Boston Cream Donut">
+  <h3>Boston Cream Donut</h3>
+  <p>Price: ₹42</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="sprinkles donut.jpeg" alt="Sprinkles Donut">
+  <h3>Sprinkles Donut</h3>
+  <p>Price: ₹39</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="cinnamon sugar donut.jpeg" alt="Cinnamon Sugar Donut">
+  <h3>Cinnamon Sugar Donut</h3>
+  <p>Price: ₹36</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</div>
+<!-- Snacks Section -->
+<div id="snacks" class="category" style="display:none;">
+  <h2>Snacks</h2>
+  <div class="grid">
+<div class="card">
+  <img src="cheese puff.jpeg" alt="Cheese Puff">
+  <h3>Cheese Puff</h3>
+  <p>Price: ₹40</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="veg puff.jpeg" alt="Veg Roll">
+  <h3>Veg Roll</h3>
+  <p>Price: ₹45</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="paneer pufff.jpeg" alt="Paneer Puff">
+  <h3>Paneer Puff</h3>
+  <p>Price: ₹48</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="chicken puff.jpeg" alt="Chicken Puff">
+  <h3>Chicken Puff</h3>
+  <p>Price: ₹50</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="masala toast.jpeg" alt="Masala Toast">
+  <h3>Masala Toast</h3>
+  <p>Price: ₹30</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="mini samosa.jpeg" alt="Mini Samosa">
+  <h3>Mini Samosa</h3>
+  <p>Price: ₹35</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+
+<!-- Cup Cakes Section -->
+<div id="cupcakes" class="category" style="display:none;">
+  <h2>Cup Cakes</h2>
+  <div class="grid">
+    <!-- Cupcakes Section -->
+<div class="card">
+  <img src="chocolate cupcake.jpeg" alt="Chocolate Cupcake">
+  <h3>Chocolate Cupcake</h3>
+  <p>Price: ₹45</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="cup.jpeg" alt="Vanilla Cupcake">
+  <h3>Vanilla Cupcake</h3>
+  <p>Price: ₹42</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="red velvet cupcake.jpeg" alt="Red Velvet Cupcake">
+  <h3>Red Velvet Cupcake</h3>
+  <p>Price: ₹50</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="strawberry cupcake.jpeg" alt="Strawberry Cupcake">
+  <h3>Strawberry Cupcake</h3>
+  <p>Price: ₹44</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="butterscotch cupcake.jpeg" alt="Butterscotch Cupcake">
+  <h3>Butterscotch Cupcake</h3>
+  <p>Price: ₹47</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="blueberry cupcakes.jpeg" alt="Blueberry Cupcake">
+  <h3>Blueberry Cupcake</h3>
+  <p>Price: ₹48</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+  </div>
+</div>
+<!-- Sweets & Desserts Section -->
+
+<div id="sweets" class="category" style="display:none;">
+  <h2>Sweets & Desserts</h2>
+  <div class="grid">
+    <div class="card">
+  <img src="gulab jamun.jpeg" alt="Gulab Jamun">
+  <h3>Gulab Jamun</h3>
+  <p>Price: ₹35</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="rasgulla.jpeg" alt="Rasgulla">
+  <h3>Rasgulla</h3>
+  <p>Price: ₹30</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="chum chum.jpeg" alt="Chum Chum">
+  <h3>Chum Chum</h3>
+  <p>Price: ₹32</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="kalakand.jpeg" alt="Kalakand">
+  <h3>Kalakand</h3>
+  <p>Price: ₹40</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="milk cake.jpeg" alt="Milk Cake">
+  <h3>Milk Cake</h3>
+  <p>Price: ₹38</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="kaju katil.jpeg" alt="Kaju Katli">
+  <h3>Kaju Katli</h3>
+  <p>Price: ₹45</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="card">
+  <img src="barfi.jpeg" alt="Barfi">
+  <h3>Barfi</h3>
+  <p>Price: ₹50</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</div>
+
+  
+
+<!-- Beverages Section -->
+
+<div id="beverages" class="category" style="display:none;">
+  <h2>Beverages</h2>
+  <div class="grid">
+    <div class="card">
+  <img src="cold codffe.jpeg" alt="Cold Coffee">
+  <h3>Cold Coffee</h3>
+  <p>Price: ₹55</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="iced tea.jpeg" alt="Iced Tea">
+  <h3>Iced Tea</h3>
+  <p>Price: ₹45</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="mango shake.jpeg" alt="Mango Shake">
+  <h3>Mango Shake</h3>
+  <p>Price: ₹60</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="strawberry mikshkae.jpeg" alt="Strawberry Milkshake">
+  <h3>Strawberry Milkshake</h3>
+  <p>Price: ₹58</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="chocolate milkshake.jpeg" alt="Chocolate Milkshake">
+  <h3>Chocolate Milkshake</h3>
+  <p>Price: ₹62</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="lemon soda.jpeg" alt="Lemon Soda">
+  <h3>Lemon Soda</h3>
+  <p>Price: ₹35</p>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+ 
+    </div>
+  </div>  
+
+
+
+
+
+  </main>
+
+  <script>
+    function showCategory(id) {
+      const categories = document.querySelectorAll('.category');
+      categories.forEach(cat => cat.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    // Show default (first) category on load
+    window.onload = () => showCategory('breads');
+  </script>
+
+
+<script>
+  function showCategory(id) {
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(cat => cat.style.display = 'none');
+
+    const categoryToShow = document.getElementById(id.toLowerCase());
+    if (categoryToShow) {
+      categoryToShow.style.display = 'block';
+    } else {
+      // Fallback if category doesn't exist
+      document.getElementById('breads').style.display = 'block';
+    }
+  }
+
+  function getCategoryFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("category")?.toLowerCase();
+  }
+
+  window.onload = () => {
+    const category = getCategoryFromURL();
+    showCategory(category || 'breads');
+  };
+</script>
+
+<script>
+  function showCategory(id) {
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(cat => cat.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function getCategoryFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("category")?.toLowerCase();
+  }
+
+  window.onload = () => {
+    const category = getCategoryFromURL();
+    showCategory(category || 'breads');
+  };
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Handle all increase buttons
+  document.querySelectorAll(".increase").forEach(button => {
+    button.addEventListener("click", () => {
+      const quantitySpan = button.parentElement.querySelector(".quantity");
+      let qty = parseInt(quantitySpan.textContent);
+      quantitySpan.textContent = qty + 1;
+    });
+  });
+
+  // Handle all decrease buttons
+  document.querySelectorAll(".decrease").forEach(button => {
+    button.addEventListener("click", () => {
+      const quantitySpan = button.parentElement.querySelector(".quantity");
+      let qty = parseInt(quantitySpan.textContent);
+      if (qty > 0) {
+        quantitySpan.textContent = qty - 1;
+      }
+    });
+  });
+
+  // Handle all "Add to Cart" buttons
+  document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".card");
+      const itemName = card.querySelector("h3").textContent;
+      const qty = parseInt(card.querySelector(".quantity").textContent);
+
+      if (qty > 0) {
+        alert(`${qty} × ${itemName} added to cart`);
+        // Add logic here to push to cart or localStorage
+        card.querySelector(".quantity").textContent = "0"; // reset
+      } else {
+        alert("Please increase quantity before adding to cart.");
+      }
+    });
+  });
+});
+</script>
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#pastries .card').forEach(card => {
+      const addToCartBtn = card.querySelector('.add-to-cart');
+      const priceText = card.querySelector('p');
+      const price = parseInt(priceText.textContent.replace(/[^0-9]/g, ''));
+
+      addToCartBtn.addEventListener('click', () => {
+        const item = {
+  name: card.querySelector('h3').innerText,
+  price: price,
+  image: card.querySelector('img').getAttribute('src'),
+  quantity: 1
+};
+
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${item.name} added to cart.`);
+      });
+    });
+  });
+</script>
+
+
+<script>
+  // Add-to-Cart logic for all categories (like Breads)
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card');
+        const item = {
+          name: card.querySelector('h3').innerText,
+          price: parseInt(card.querySelector('p').innerText.replace(/[^0-9]/g, '')),
+          image: card.querySelector('img').getAttribute('src'),
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${item.name} added to cart.`);
+        updateCartCount();
+      });
+    });
+
+    // Show cart count when page loads
+    updateCartCount();
+  });
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.getElementById('cart-count');
+    if (badge) {
+      badge.innerText = totalItems;
+    }
+  }
+</script>
+
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const nav = document.getElementById("navLinks");
+
+      hamburgerBtn.addEventListener("click", () => {
+        nav.classList.toggle("show");
+        hamburgerBtn.textContent = nav.classList.contains("show") ? "✕" : "☰";
+      });
+
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove("show");
+            hamburgerBtn.textContent = "☰";
+          }
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          nav.classList.remove("show");
+          hamburgerBtn.textContent = "☰";
+        }
+      });
+    });
+  </script>
+
+
+
+
+
+</body>
+</html>

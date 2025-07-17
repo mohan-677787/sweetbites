@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+        <div class="logo" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <img src="ChatGPT Image Jul 2, 2025, 03_51_28 PM.png" alt="Sweet Bites Logo" style="height: 40px;" />
+          <span style="font-size: 1.5rem; font-weight: 600;">Sweet Bites</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="cart.html">CART <span id="cart-count" class="cart-badge">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="cart-page with bg">
+    <h1 style="text-align: center;">YOUR CART</h1>
+
+    <button onclick="clearCart()" style="margin: 10px auto; display: block; padding: 0.6rem 1.2rem; background-color: #ff4d4d; color: white; border: none; border-radius: 8px; cursor: pointer;">Clear Cart</button>
+
+    <!-- Cart Items Section -->
+    <div id="cart-container"></div>
+
+    <!-- Coupon Section -->
+    <div class="coupon-section" style="text-align: center; margin-top: 20px;">
+      <input type="text" id="coupon-code" placeholder="Enter coupon code" style="padding: 8px; width: 200px;" />
+      <button onclick="applyCoupon()" style="padding: 8px 15px; background-color: #ff4d4d; color: white; border: none; border-radius: 6px;">Apply Coupon</button>
+      <p id="coupon-msg"></p>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="summary" style="text-align: center; margin-top: 30px;">
+      <p><strong>Subtotal:</strong> ₹<span id="subtotal">0</span></p>
+      <p><strong>Discount:</strong> -₹<span id="discount">0</span></p>
+      <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+      <a href="payment.html" class="checkout-btn" style="text-decoration:none;">
+        <button style="padding: 10px 10px; background-color: #e86c52; color: white; border: none; border-radius: 8px;">Proceed to Checkout</button>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let discountAmount = 0;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartContainer = document.getElementById("cart-container");
+      let subtotal = 0;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+        document.getElementById("subtotal").innerText = 0;
+        document.getElementById("total").innerText = 0;
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 20px;">
+            <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px;">
+            <div>
+              <h3>${item.name}</h3>
+              <p>Price: ₹${item.price}</p>
+              <div class="quantity-controls" style="display: flex; align-items: center; gap: 0.5rem;">
+                <button onclick="updateQuantity(${index}, -1)" style="padding: 7px 11px; background-color: #e86c52; color: white; border: none; border-radius: 4px;">−</button>
+                <span>${item.quantity}</span>
+                <button onclick="updateQuantity(${index}, 1)" style="padding: 4px 10px; background-color: #e86c52; color: white; border: none; border-radius: 4px;">+</button>
+              </div>
+              <p>Total: ₹${itemTotal}</p>
+            </div>
+          </div>
+        `;
+        cartContainer.appendChild(div);
+      });
+
+      document.getElementById("subtotal").innerText = subtotal;
+      document.getElementById("discount").innerText = discountAmount;
+      document.getElementById("total").innerText = subtotal - discountAmount;
+    });
+
+    function updateQuantity(index, change) {
+      cart[index].quantity += change;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById("coupon-code").value.trim().toUpperCase();
+      const msg = document.getElementById("coupon-msg");
+      const subtotal = parseFloat(document.getElementById("subtotal").innerText);
+
+      if (code === "SWEET10") {
+        discountAmount = Math.round(subtotal * 0.1);
+        document.getElementById("discount").innerText = discountAmount;
+        document.getElementById("total").innerText = subtotal - discountAmount;
+        msg.style.color = "green";
+        msg.innerText = "Coupon applied successfully! 🎉";
+      } else {
+        discountAmount = 0;
+        document.getElementById("discount").innerText = discountAmount;
+        document.getElementById("total").innerText = subtotal;
+        msg.style.color = "red";
+        msg.innerText = "Invalid coupon code!";
+      }
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Bites - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+  <!-- Left: Logo -->
+  <a href="index.html" style="text-decoration: none; color: inherit;">
+    <div class="logo">
+      <img src="ChatGPT Image Jul 2, 2025, 03_51_28 PM.png" alt="Sweet Bites Logo" />
+      <span>Sweet Bites</span>
+    </div>
+  </a>
+
+  <!-- Hamburger (right aligned) -->
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+  <!-- Right: Nav Links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="menu.html">MENU</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="enter-address.html">ADDRESS</a></li>
+    <li><a href="login.html">LOGIN / SIGNUP</a></li>
+  
+
+  </ul>
+</nav>
+
+  </header>
+
+  <main class="hero">
+    <div class="hero-text">
+      <h1>Welcome to Sweet Bites</h1>
+      <p>Freshly baked happiness just for you!!!</p>
+
+
+      <div class="search-bar">
+  <form action="menu.html" method="get">
+    <input type="text" name="category" placeholder="Search items like cakes, breads..." required />
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+    </div>
+  </main>
+
+  <footer>
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h4>Sweet Bites</h4>
+      <p>Your one-stop bakery for delicious treats. Freshly made, lovingly baked!</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><img src="intsa.jpeg" alt="Instagram"></a>
+        <a href="https://facebook.com" target="_blank"><img src="bakery/facebook.png" alt="Facebook"></a>
+        <a href="https://x.com" target="_blank"><img src="x.png" alt="X (Twitter)"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Sweet Bites. All rights reserved.</p>
+  </div>
+</footer>
+
+  </footer>
+  <script>
+  // Login handler (same as before)
+  document.querySelector("#loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const username = this.querySelector("input[placeholder='Username']").value.trim();
+    const password = this.querySelector("input[placeholder='Password']").value.trim();
+
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("loggedUser", result.username);
+      window.location.href = "dashboard.html";
+    } else {
+      alert(result.message || "Login failed");
+    }
+  });
+</script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+
+  function handleResize() {
+    const nav = document.getElementById("navLinks");
+    if (window.innerWidth > 768) {
+      nav.classList.remove("show");
+      nav.style.display = "flex";
+    } else {
+      nav.style.display = "";
+    }
+  }
+
+  window.addEventListener("resize", handleResize);
+  window.addEventListener("DOMContentLoaded", handleResize);
+</script>
+<script src="js/script.js" defer></script>
+
+
+</body>
+</html>

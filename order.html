@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Summary - Sweet Bites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fffaf5;
+    }
+
+    .order-summary {
+      max-width: 90%;
+      width: 600px;
+      margin: 40px auto;
+      background-color: #fffaf2;
+      border: 2px solid #ffd1a6;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 175, 130, 0.2);
+    }
+
+    .order-summary h1 {
+      color: #ff9966;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+    }
+
+    .order-summary h3 {
+      margin-top: 20px;
+      color: #d2691e;
+    }
+
+    .order-summary ul {
+      text-align: left;
+      margin: 20px 0;
+      padding: 0 15px;
+    }
+
+    .order-summary ul li {
+      margin: 8px 0;
+      padding: 5px;
+      border-bottom: 1px dashed #ffcba4;
+      list-style-type: disc;
+    }
+
+    .total {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #d2691e;
+    }
+
+    .btn-group {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn-group a {
+      text-decoration: none;
+      background-color: #ff9966;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-group a:hover {
+      background-color: #ff7f50;
+    }
+
+    .summary-box {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    #orderItems p {
+      margin: 5px 0;
+      padding-left: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .order-summary {
+        padding: 20px 15px;
+      }
+
+      .order-summary h1 {
+        font-size: 1.5rem;
+      }
+
+      .btn-group a {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="order-summary">
+    <h1>🎉 Thank You for Your Order!</h1>
+    <p>Your order number is: <strong id="order-id">#123456</strong></p>
+
+    <h3>Items Ordered:</h3>
+    <ul id="order-items"></ul>
+
+    <p class="total">Total Paid: ₹<span id="order-total">0</span></p>
+
+    <div class="btn-group">
+      <a href="menu.html">🍽 Back to Menu</a>
+      <a href="#">📦 Track Order</a>
+    </div>
+
+    <div class="summary-box">
+      <h3>Delivery Address</h3>
+      <div id="deliveryDetails"></div>
+    </div>
+  </div>
+
+  <script>
+    // Generate a random order ID
+    document.getElementById("order-id").textContent =
+      "#" + Math.floor(100000 + Math.random() * 900000);
+
+    // Fetch cart from localStorage and show ordered items
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderItems = document.getElementById("order-items");
+    let total = 0;
+
+    if (cart.length === 0) {
+      orderItems.innerHTML = "<li>Your cart was empty.</li>";
+    } else {
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.quantity} x ${item.name} - ₹${item.price * item.quantity}`;
+        total += item.price * item.quantity;
+        orderItems.appendChild(li);
+      });
+    }
+
+    document.getElementById("order-total").textContent = total;
+
+    // Clear cart
+    localStorage.removeItem("cart");
+
+    // Load delivery address
+    window.onload = function () {
+      const address = JSON.parse(localStorage.getItem("userAddress"));
+      if (address) {
+        document.getElementById("deliveryDetails").innerHTML = `
+          <p>${address.fullName}</p>
+          <p>${address.address}, ${address.city}, ${address.state} - ${address.pincode}</p>
+          <p>Phone: ${address.phone}</p>
+        `;
+      }
+    };
+  </script>
+</body>
+</html>

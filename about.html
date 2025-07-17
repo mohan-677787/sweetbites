@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .video-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .video-section video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .video-content {
+      z-index: 1;
+      max-width: 900px;
+      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    h1, h2, p {
+      color: #fffdf7;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+  <div class="logo" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+    <img src="ChatGPT Image Jul 2, 2025, 03_51_28 PM.png" alt="Sweet Bites Logo" style="height: 40px;" />
+    <span style="font-size: 1.5rem; font-weight: 600;">Sweet Bites</span>
+  </div>
+</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section 1: About Us -->
+  <section class="video-section">
+    <video autoplay muted loop>
+      <source src="bakery/bakery1.mp4" type="video/mp4">
+
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-content">
+      <h1>Welcome to Sweet Bites</h1>
+      <p>
+        At Sweet Bites, baking isn't just a business — it's a passion. 
+        We blend traditional recipes with modern creativity to bring you the most delightful treats every day.
+      </p>
+    </div> 
+  </section>
+
+  
+
+<!-- Our Chefs Section -->
+<section class="chefs-section" style="background: #fff8f0; padding: 4rem 2rem; text-align: center; font-family: 'Poppins', sans-serif;">
+  <h2 style="color: #b76e79; font-size: 2.5rem; margin-bottom: 1rem;">Meet Our Chefs</h2>
+  <p style="color: #555; font-size: 1.1rem;">Crafting excellence with every whisk and bake.</p>
+  <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem;">
+    <div style="max-width: 220px; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); padding: 1.5rem;">
+      <img src="chef girl.png" alt="Chef Mia" style="width: 100%; border-radius: 50%; border: 4px solid #ffd1dc;" />
+      <h3 style="color: #b76e79; margin: 1rem 0 0.5rem;">Chef Mia</h3>
+      <p style="font-size: 0.95rem; color: #666;">Pastry Queen with 10+ years of experience.</p>
+    </div>
+    <div style="max-width: 220px; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); padding: 1.5rem;">
+      <img src="chef boy.png" alt="Chef Arjun" style="width: 100%; border-radius: 50%; border: 4px solid #ffd1dc;" />
+      <h3 style="color: #b76e79; margin: 1rem 0 0.5rem;">Chef Arjun</h3>
+      <p style="font-size: 0.95rem; color: #666;">Master of artisan breads and fusion desserts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quality Section -->
+<section class="quality-section" style="background: #fef3ec; padding: 4rem 2rem; text-align: center; font-family: 'Poppins', sans-serif;">
+  <h2 style="color: #a0522d; font-size: 2.5rem; margin-bottom: 1rem;">Our Promise of Quality</h2>
+  <p style="color: #444; font-size: 1.1rem;">We believe in serving goodness with every bite.</p>
+  <ul style="list-style: none; padding: 0; margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem;">
+    <li style="background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-size: 1rem; color: #333;">✅ No artificial preservatives</li>
+    <li style="background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-size: 1rem; color: #333;">✅ Organic dairy and flours</li>
+    <li style="background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-size: 1rem; color: #333;">✅ Baked fresh every morning</li>
+  </ul>
+</section>
+
+<!-- Reviews Section -->
+<section class="reviews-section" style="background: #fff0f5; padding: 4rem 2rem; text-align: center; font-family: 'Poppins', sans-serif;">
+  <h2 style="color: #c71585; font-size: 2.5rem; margin-bottom: 1rem;">Customer Love</h2>
+  <p style="color: #555; font-size: 1.1rem;">Here’s what our sweet fans are saying!</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;">
+    <div style="max-width: 300px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+      <p style="color: #444;">“Sweet Bites cakes are divine! My go-to bakery for every celebration.”</p>
+      <strong style="color: #b76e79;">– Ananya</strong>
+    </div>
+    <div style="max-width: 300px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+      <p style="color: #444;">“Absolutely love their cupcakes. So moist and flavorful!”</p>
+      <strong style="color: #b76e79;">– Rahul</strong>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

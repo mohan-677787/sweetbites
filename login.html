@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Bites | Login / Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Segoe+UI&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff5e6;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(255, 248, 242, 0.95);
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 28px;
+      color: #d94f04;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #d94f04;
+    }
+
+    /* Login Container */
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: #fffaf2;
+      border: 2px solid #ffd1a6;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(255, 175, 130, 0.3);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-family: 'Pacifico', cursive;
+      color: #ff9966;
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons button {
+      flex: 1;
+      padding: 10px;
+      background: #ffe5cc;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 0 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .toggle-buttons button.active {
+      background: #ff9966;
+      color: white;
+      box-shadow: 0 4px 10px rgba(255, 153, 102, 0.5);
+    }
+
+    form {
+      display: none;
+      flex-direction: column;
+    }
+
+    form.active {
+      display: flex;
+    }
+
+    input {
+      margin: 10px 0;
+      padding: 12px;
+      border: 1px solid #ffcba4;
+      border-radius: 25px;
+      outline: none;
+      background: #fff7ee;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #ff9966;
+    }
+
+    button.submit-btn {
+      margin-top: 15px;
+      padding: 12px;
+      background: #ff9966;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button.submit-btn:hover {
+      background: #ff7f50;
+    }
+
+    .alt-login {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .alt-login p {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #999;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .social-icons img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      background-color: white;
+      padding: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .navbar .logo {
+        font-size: 22px;
+      }
+
+      .navbar a {
+        margin-left: 0;
+        font-size: 14px;
+      }
+
+      .container {
+        width: 90%;
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      .toggle-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .toggle-buttons button {
+        width: 100%;
+        margin: 5px 0;
+      }
+
+      input {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      .alt-login .social-icons {
+        flex-direction: row;
+        gap: 15px;
+      }
+
+      .alt-login p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌐 Navbar -->
+  <div class="navbar">
+    <div class="logo">Sweet Bites</div>
+    <div><a href="index.html">HOME</a></div>
+  </div>
+
+  <!-- 🧁 Login/Signup Container -->
+  <div class="container">
+    <h2>Welcome to Sweet Bites!</h2>
+    <div class="toggle-buttons">
+      <button id="loginBtn" class="active">Login</button>
+      <button id="signupBtn">Signup</button>
+    </div>
+
+    <form id="loginForm" class="active">
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button class="submit-btn">Login</button>
+    </form>
+
+    <form id="signupForm">
+      <input type="text" placeholder="Username" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      <button class="submit-btn">Signup</button>
+
+      <!-- Alternative Login Options -->
+      <div class="alt-login">
+        <p>or login with</p>
+        <div class="social-icons">
+          <a href="https://accounts.google.com" target="_blank">
+            <img src="bakery/google.png" alt="Google" />
+          </a>
+          <a href="https://www.facebook.com/login/" target="_blank">
+            <img src="bakery/facebook.png" alt="Facebook" />
+          </a>
+          <a href="tel:1234567890">
+            <img src="bakery/mobile.png" alt="Phone" />
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    loginBtn.addEventListener('click', () => {
+      loginBtn.classList.add('active');
+      signupBtn.classList.remove('active');
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+    });
+
+    signupBtn.addEventListener('click', () => {
+      signupBtn.classList.add('active');
+      loginBtn.classList.remove('active');
+      signupForm.classList.add('active');
+      loginForm.classList.remove('active');
+    });
+
+    // LOGIN LOGIC
+    loginForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const username = this.querySelector("input[placeholder='Username']").value.trim();
+      const password = this.querySelector("input[placeholder='Password']").value.trim();
+
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("loggedUser", result.username);
+        window.location.href = "dashboard.html";
+      } else {
+        alert(result.message || "Login failed");
+      }
+    });
+
+    // SIGNUP LOGIC
+    signupForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const username = this.querySelector("input[placeholder='Username']").value.trim();
+      const email = this.querySelector("input[placeholder='Email']").value.trim();
+      const password = this.querySelector("input[placeholder='Password']").value.trim();
+      const confirmPassword = this.querySelector("input[placeholder='Confirm Password']").value.trim();
+
+      if (password !== confirmPassword) {
+        alert("❗ Passwords do not match");
+        return;
+      }
+
+      const response = await fetch("http://localhost:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("✅ Signup successful! Redirecting to login...");
+        setTimeout(() => {
+          loginBtn.click();
+        }, 1000);
+      } else {    
+        alert("❗ " + result.message);
+      }
+    });
+  </script>
+</body>
+</html>

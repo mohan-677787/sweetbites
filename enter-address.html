@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enter Delivery Address - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+      background-color: #fff8f0;
+    }
+    .address-form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .address-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff6600;
+    }
+    .address-form input,
+    .address-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .address-form button {
+      width: 100%;
+      background-color: #ff6600;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .address-form button:hover {
+      background-color: #cc5200;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="address-form">
+    <h2>Enter Delivery Address</h2>
+    <input type="text" id="fullName" placeholder="Full Name" required />
+    <input type="tel" id="phone" placeholder="Phone Number" required />
+    <input type="email" id="email" placeholder="Email Address (optional)" />
+    <textarea id="address" placeholder="Flat / Street / Area / Landmark" rows="3" required></textarea>
+    <input type="text" id="city" placeholder="City" required />
+    <input type="text" id="state" placeholder="State" required />
+    <input type="text" id="pincode" placeholder="Pincode" required />
+    <button onclick="saveAddress()">Save and Continue</button>
+  </div>
+
+  <script>
+    function saveAddress() {
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const state = document.getElementById('state').value.trim();
+      const pincode = document.getElementById('pincode').value.trim();
+
+      if (!fullName || !phone || !address || !city || !state || !pincode) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const userAddress = {
+        fullName,
+        phone,
+        email,
+        address,
+        city,
+        state,
+        pincode
+      };
+
+      localStorage.setItem("userAddress", JSON.stringify(userAddress));
+
+      // Go to payment page
+      window.location.href = "payment.html";
+    }
+  </script>
+
+</body>
+</html>

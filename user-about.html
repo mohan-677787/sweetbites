@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Sweet Bites</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .video-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .video-section video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .video-content {
+      z-index: 1;
+      max-width: 900px;
+      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    h1, h2, p {
+      color: #fffdf7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="ChatGPT Image Jul 2, 2025, 03_51_28 PM.png" alt="Sweet Bites Logo" />
+        </a>
+        <span>Sweet Bites</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section 1: About Us -->
+  <section class="video-section">
+    <video autoplay muted loop>
+      <source src="bakery/bakery1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-content">
+      <h1>Welcome to Sweet Bites</h1>
+      <p>
+        At Sweet Bites, baking isn't just a business — it's a passion. 
+        We blend traditional recipes with modern creativity to bring you the most delightful treats every day.
+      </p>
+    </div>
+  </section>
+
+  
+</body>
+</html>
